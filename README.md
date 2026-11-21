@@ -13,6 +13,16 @@ Built for the [Firebase #BuildHybridAI 2026](https://firebasehybridaihackathon.d
 
 ---
 
+## Screenshots
+
+| | |
+|---|---|
+| ![Landing page](docs/screenshots/landing.png)<br/>**Landing page.** Sign in with Google to get your own twin. | ![Two agents read a page](docs/screenshots/agents.png)<br/>**The extension.** Scout reads the page and Keeper marks what to keep. |
+| ![Deep think with masked names](docs/screenshots/deep-think.png)<br/>**Deep think.** Names become tags before anything goes to the cloud. | ![Memories](docs/screenshots/memories.png)<br/>**Memories.** Each has a kind, a weight and a source. |
+| ![Privacy ledger](docs/screenshots/ledger.png)<br/>**Privacy ledger.** Every byte that left the device, exactly as sent. | |
+
+---
+
 ## 1. The idea
 
 Most AI tools make you choose. Keep everything private and get a weak model. Or send everything to the cloud and give up your privacy.
