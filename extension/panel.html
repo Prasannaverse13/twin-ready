@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Twin</title>
+  <link rel="stylesheet" href="panel.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand"><span class="logo"><svg viewBox="0 0 24 24"><g fill="currentColor"><ellipse cx="12" cy="6.2" rx="2.3" ry="4.2"/><ellipse cx="12" cy="6.2" rx="2.3" ry="4.2" transform="rotate(72 12 12)"/><ellipse cx="12" cy="6.2" rx="2.3" ry="4.2" transform="rotate(144 12 12)"/><ellipse cx="12" cy="6.2" rx="2.3" ry="4.2" transform="rotate(216 12 12)"/><ellipse cx="12" cy="6.2" rx="2.3" ry="4.2" transform="rotate(288 12 12)"/></g></svg></span><b>twin.</b></div>
+    <button class="menu" id="open" title="Open the Twin app"><i></i><i></i></button>
+  </header>
+
+  <section class="status" id="status">
+    <div class="mono">/status/</div>
+    <div class="line"><span class="dot" id="dot"></span><span id="stext">Checking your twin...</span></div>
+    <div class="sub" id="ssub"></div>
+  </section>
+
+  <section class="capture">
+    <div class="mono">/agents/</div>
+    <h2>Two agents read <span class="soft">so you never copy and paste.</span></h2>
+    <div class="agents"><span><i class="s">S</i>Scout reads every block</span><span><i class="k">K</i>Keeper keeps what matters</span></div>
+    <div class="btns">
+      <button class="btn primary" id="run">Run agents on this page</button>
+    </div>
+    <label class="auto"><input type="checkbox" id="auto" /> <span><b>Auto learn as I browse</b><small>Skips mail, banking, login and payment pages</small></span></label>
+    <div class="hint">Right click any text to teach just that. Shortcut Alt+Shift+K runs the agents.</div>
+    <div class="note" id="tnote"></div>
+  </section>
+
+  <section class="chat">
+    <div class="mono">/talk/</div>
+    <div id="log" class="log"><div class="empty">Ask your twin anything. It answers like you, from your own memories.</div></div>
+  </section>
+
+  <footer class="ask">
+    <label class="deep"><input type="checkbox" id="deep" /> Deep think in cloud (names masked)</label>
+    <div class="row"><input id="q" type="text" placeholder="What would I choose?" autocomplete="off" /><button class="btn primary" id="send">Ask</button></div>
+    <div class="home">Twin home <select id="home"><option value="local">localhost:5173</option><option value="live">twin-hybrid-gm.web.app</option></select></div>
+  </footer>
+
+  <script type="module" src="panel.js"></script>
+</body>
+</html>

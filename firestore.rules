@@ -1,0 +1,37 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function validCard(c) {
+      return c is map
+        && c.keys().hasOnly(['name', 'about', 'note', 'style'])
+        && c.name is string && c.name.size() < 80
+        && c.about is string && c.about.size() < 6000
+        && c.note is string && c.note.size() < 600
+        && c.style is string && c.style.size() < 600;
+    }
+    // Public twins. Anyone can read a card. Only the owner can write it.
+    match /twins/{id} {
+      allow read: if true;
+      allow create: if request.auth != null
+        && request.resource.data.keys().hasOnly(['ownerUid', 'card', 'updatedAt'])
+        && request.resource.data.ownerUid == request.auth.uid
+        && validCard(request.resource.data.card);
+      allow update: if request.auth != null
+        && resource.data.ownerUid == request.auth.uid
+        && request.resource.data.ownerUid == request.auth.uid
+        && request.resource.data.keys().hasOnly(['ownerUid', 'card', 'updatedAt'])
+        && validCard(request.resource.data.card);
+      allow delete: if request.auth != null && resource.data.ownerUid == request.auth.uid;
+
+      // Visitors can leave a message. Only the owner can read it.
+      match /messages/{mid} {
+        allow create: if request.auth != null
+          && request.resource.data.keys().hasOnly(['text', 'from', 'at'])
+          && request.resource.data.text is string && request.resource.data.text.size() <= 600
+          && request.resource.data.from is string && request.resource.data.from.size() <= 60;
+        allow read, delete: if request.auth != null
+          && get(/databases/$(database)/documents/twins/$(id)).data.ownerUid == request.auth.uid;
+      }
+    }
+  }
+}

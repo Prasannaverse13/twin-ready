@@ -1,0 +1,61 @@
+{
+  "manifest_version": 3,
+  "name": "Twin. Your private digital twin",
+  "short_name": "Twin",
+  "version": "1.1.0",
+  "description": "Two AI agents read the pages you visit and teach your private digital twin. Chat with it in the side panel. Memory stays on your device.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Open Twin"
+  },
+  "side_panel": {
+    "default_path": "panel.html"
+  },
+  "background": {
+    "service_worker": "bg.js",
+    "type": "module"
+  },
+  "permissions": [
+    "sidePanel",
+    "contextMenus",
+    "scripting",
+    "activeTab",
+    "tabs",
+    "storage",
+    "alarms"
+  ],
+  "host_permissions": [
+    "http://localhost:5173/*",
+    "https://twin-hybrid-gm.web.app/*",
+    "https://twin-hybrid-gm.firebaseapp.com/*"
+  ],
+  "optional_host_permissions": [
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://localhost:5173/*",
+        "https://twin-hybrid-gm.web.app/*",
+        "https://twin-hybrid-gm.firebaseapp.com/*"
+      ],
+      "js": [
+        "bridge.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "commands": {
+    "run-agents": {
+      "suggested_key": {
+        "default": "Alt+Shift+K"
+      },
+      "description": "Let my twin agents read this page"
+    }
+  }
+}

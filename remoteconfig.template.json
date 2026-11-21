@@ -1,0 +1,9 @@
+{
+  "parameters": {
+    "router_threshold": { "defaultValue": { "value": "0.55" }, "valueType": "NUMBER" },
+    "privacy_weight": { "defaultValue": { "value": "0.45" }, "valueType": "NUMBER" },
+    "complexity_weight": { "defaultValue": { "value": "0.6" }, "valueType": "NUMBER" },
+    "device_token_limit": { "defaultValue": { "value": "6000" }, "valueType": "NUMBER" },
+    "cloud_model": { "defaultValue": { "value": "gemini-3.5-flash-lite" }, "valueType": "STRING" }
+  }
+}

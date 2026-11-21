@@ -1,0 +1,23 @@
+{
+  "name": "twin",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A digital twin that lives on the internet. Private memory stays on your device. Hybrid AI with Firebase AI Logic.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "firebase": "^13.3.0"
+  },
+  "devDependencies": {
+    "typescript": "*",
+    "vite": "*",
+    "vitest": "*"
+  }
+}

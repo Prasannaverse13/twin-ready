@@ -1,0 +1,12 @@
+node_modules
+dist
+.env
+.env.*
+!.env.example
+*.zip
+!public/twin-extension.zip
+.firebase
+deploy-log.txt
+deploy.bat
+*.log
+.DS_Store
